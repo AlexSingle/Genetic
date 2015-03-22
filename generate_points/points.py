@@ -9,7 +9,7 @@ class Field(object):
         self.size = 2**n
         self.dim = dim
         self.n = n
-        np.random.seed(100)
+        #np.random.seed(100)
 
     def points_distance(self, points):
         return sc_dist.squareform(sc_dist.pdist(points))
@@ -55,8 +55,8 @@ class Field(object):
 
     def square_normal(self):
         points = np.random.randn(self.size, 2)
-        points[0:self.size/4][:,0] += 1000
-        points[self.size/4:(self.size/4)*2][:,0] += 1000
-        points[self.size/4:(self.size/4)*2][:,1] += 100
-        points[(self.size/4)*2:(self.size/4)*3][:,1] += 100
+        points[0:self.size/4][:, 0] += 1000
+        points[self.size/4:(self.size/4)*2][:, 0] += 1000
+        points[self.size/4:(self.size/4)*2][:, 1] += 100
+        points[(self.size/4)*2:(self.size/4)*3][:, 1] += 100
         return self.points_distance(points), points

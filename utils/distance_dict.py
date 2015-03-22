@@ -56,3 +56,7 @@ def generate_ones(n):
         for r, one in enumerate(near_points[1]):
             d[arr_sorted_int[one+flags[k+1]]].append(arr_sorted_int[near_points[0, r]+flags[k]])
     return d
+
+def dict_with_memory(n):
+    cahced_dict = CachedDict(generate_ones)
+    return cahced_dict(n)
