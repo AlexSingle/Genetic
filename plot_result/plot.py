@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from utils import goodness_overall as go
 import numpy as np
-
+from matplotlib import rc
+plt.rcdefaults()
 
 def plot_lines(positions, points, d, num, fig):
     if fig:
@@ -23,11 +24,11 @@ def plot_results(genetic_position, random_position, plot_points, test_points, go
         fig = None
     plt.subplot(221)
     plt.title('Genetic')
-    plt.axis([-1, 4, -1, 4])
+    plt.axis([-4, 4, -4, 4])
     plot_lines(genetic_position, plot_points, d, 221, fig)
     plt.subplot(222)
     plt.title('Random')
-    plt.axis([-1, 4, -1, 4])
+    plt.axis([-4, 4, -4, 4])
     plot_lines(random_position, plot_points, d, 222, fig)
     plt.subplot(212)
     overall = go.goodness_overall(test_points, goodness_genetic, d, sample)

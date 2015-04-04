@@ -3,6 +3,7 @@ __author__ = 'Alex Single'
 
 import time
 from plot_result import plot
+import numpy as np
 from utils import distance_dict as dd, goodness_overall as go
 from generate_points import points as p
 from genetic_points.coding import genetic_coding as g_coding
@@ -22,9 +23,10 @@ def main(n, sample, dim=2, test=None, plot_flag=None):
     goodness_random, random_position = r_coding(test_points, d)
     if plot_flag:
         plot.plot_results(genetic_position, random_position, plot_points, test_points, goodness_genetic, sample, d)
-    return go.goodness_overall(test_points, goodness_genetic, d, sample)[0]
+    goodeness_all = go.goodness_overall(test_points, goodness_genetic, d, sample)
+    print goodness_genetic, np.mean(goodeness_all[1]), np.std(goodeness_all[1]), goodeness_all[0]
+    return goodeness_all[0]
 
 start = time.time()
-#main(3, 10, dim=2)
 end = time.time()
 print end - start

@@ -9,7 +9,7 @@ class Field(object):
         self.size = 2**n
         self.dim = dim
         self.n = n
-        #np.random.seed(100)
+        np.random.seed(100)
 
     def points_distance(self, points):
         return sc_dist.squareform(sc_dist.pdist(points))
@@ -31,6 +31,10 @@ class Field(object):
 
     def grid_2d(self):
         points = np.array([[x, y] for x in [a for a in xrange(2**(self.n/2))] for y in [b for b in xrange(2**(self.n/2))]]).reshape(self.size,2)
+        return self.points_distance(points), points
+
+    def grid_1d(self):
+        points = np.array([x for x in [a for a in xrange(self.size)]]).reshape(self.size,1)
         return self.points_distance(points), points
 
     def grid_3d(self):
