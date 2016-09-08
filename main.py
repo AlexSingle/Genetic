@@ -28,5 +28,6 @@ def main(n, sample, dim=2, test=None, plot_flag=None):
     return goodeness_all[0]
 
 start = time.time()
+main(2, 4, test=False, plot_flag=True)
 end = time.time()
 print end - start

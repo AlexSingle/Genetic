@@ -3,11 +3,15 @@ __author__ = 'Alex Single'
 
 import numpy as np
 
+n = 2
+
 arr = [2**x for x in xrange(n)]
 arr.insert(0,0)
 prob = [0.1/(len(arr)-1) for x in xrange(n)]
 prob.insert(0,0.9)
+print prob
 err = np.random.choice(arr, 2**n, p=prob)
+print err
 gen_err = []
 rnd_err = []
 for k, element in enumerate(err):

@@ -5,12 +5,20 @@ from utils import distance_dict as dd, goodness
 import numpy as np
 import cProfile
 
-#@profile
+
+# @profile
 def genetic_coding(points_distance, d):
     """
     Собственно генетическое кодирование массива точек.
     На вход подается массив точек, на выходе массив кодовых комбинаций в двоичном и десятичном виде
     """
+
+    errors = [0.9, 0.05, 0.05] # идея такая, нужно взять матрицу и преобразовать ее на основе весов ошибок
+    print points_distance
+    for key in d:
+        if d[key]:
+            pass
+
     n = goodness.n_power(points_distance) # 2^n - количество точек
     flags = dd.flag(n) # кумулятивная сумма сочетаний всех комбинаций из n
     arr_sorted_int, _ = dd.sorted_ones(n) # точки отсортированные по категориям. внутри каждой категории по возрастанию.
